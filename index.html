@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrutikirti Sharma | Product Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #ffffff;
+            --black: #0a0a0f;
+            --dark-bg: #0f0f14;
+            --card-bg: #1a1a24;
+            --gray-light: #2a2a38;
+            --gray-mid: #a8a8b8;
+            --gray-dark: #e8e8f0;
+            --blue: #00d4ff;
+            --blue-hover: #00e5ff;
+            --purple: #a855f7;
+            --green: #00ff88;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--black);
+            color: var(--gray-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 100;
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .profile-picture-container {
+            margin-bottom: 40px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .profile-picture {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--blue);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6);
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 212, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .profile-picture:hover .profile-overlay {
+            opacity: 1;
+        }
+
+        .profile-hint {
+            font-size: 14px;
+            color: var(--blue);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--gray-mid);
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            font-size: 19px;
+            color: var(--gray-dark);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-hover);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        /* Section */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 19px;
+            color: var(--gray-mid);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray-dark);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3);
+            border-color: var(--blue);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--gray-mid);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 35px;
+            border-radius: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.3);
+            border-color: var(--purple);
+        }
+
+        .skill-category h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--purple);
+            margin-bottom: 20px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 10px 0;
+            color: var(--gray-dark);
+            font-size: 15px;
+            border-bottom: 1px solid rgba(168, 168, 184, 0.1);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            border-color: var(--blue);
+        }
+
+        .project-header {
+            padding: 35px;
+        }
+
+        .project-number {
+            font-size: 12px;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            color: var(--gray-dark);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0 35px 35px;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--blue);
+            font-weight: 500;
+        }
+
+        /* Side Projects */
+        .side-projects {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            padding: 50px;
+            border-radius: 22px;
+            margin-top: 40px;
+        }
+
+        .side-project-highlight {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .side-project-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+
+        .side-project-content p {
+            color: var(--gray-dark);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .side-project-visual {
+            background: var(--dark-bg);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 18px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .side-project-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .side-project-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .side-project-tagline {
+            color: var(--gray-mid);
+            font-size: 15px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(168, 168, 184, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 22px;
+        }
+
+        .contact-detail {
+            color: var(--gray-dark);
+            font-size: 16px;
+        }
+
+        .contact-detail a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-detail a:hover {
+            color: var(--blue-hover);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50%;
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--blue);
+            color: var(--black);
+            transform: scale(1.08);
+        }
+
+        /* Chatbot Section */
+        .chatbot-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 60px;
+            border-radius: 22px;
+            margin: 80px 0;
+        }
+
+        .chatbot-header-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .chatbot-header-text h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .chatbot-header-text p {
+            font-size: 16px;
+            color: var(--gray-mid);
+        }
+
+        .chatbot-window {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--dark-bg);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .chatbot-messages {
+            padding: 30px;
+            max-height: 500px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .message.bot {
+            background: var(--card-bg);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            color: var(--gray-dark);
+            align-self: flex-start;
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: var(--white);
+            align-self: flex-end;
+        }
+
+        .quick-actions {
+            padding: 20px;
+            border-top: 1px solid rgba(168, 168, 184, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .quick-btn {
+            padding: 10px 18px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 18px;
+            color: var(--blue);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-btn:hover {
+            background: var(--blue);
+            color: var(--black);
+            border-color: var(--blue);
+        }
+
+        .chatbot-input {
+            padding: 25px;
+            border-top: 1px solid rgba(168, 168, 184, 0.1);
+            display: flex;
+            gap: 12px;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 14px 20px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 25px;
+            color: var(--white);
+            font-size: 15px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chatbot-input input::placeholder {
+            color: var(--gray-mid);
+        }
+
+        .chatbot-input button {
+            padding: 14px 30px;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            border: none;
+            border-radius: 25px;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 1px solid rgba(168, 168, 184, 0.1);
+            color: var(--gray-mid);
+            font-size: 14px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--blue-hover);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 { font-size: 44px; }
+            .about-content, .contact-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .side-project-highlight { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            h1 { font-size: 36px; }
+            .nav-links { display: none; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .chatbot-section { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Shrutikirti Sharma, Product Manager</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="profile-picture-container" onclick="scrollToChatbot()">
+                <div class="profile-picture">
+                    <img src="profile-photo.png" alt="Shrutikirti Sharma - Product Manager">
+                    <div class="profile-overlay">
+                        <span>💬 Chat with me</span>
+                    </div>
+                </div>
+                <div class="profile-hint">Click to chat →</div>
+            </div>
+            <h1>Shrutikirti Sharma</h1>
+            <p class="subtitle">Product Manager | AI & Automation Specialist</p>
+            <p class="hero-description">
+                Interdisciplinary product strategist combining science, arts, psychology, finance, and marketing. 
+                Dual master's degrees in MBA and Design Thinking. Passionate about the journey from problem to creative solution, 
+                leveraging AI automation to transform PM workflows and deliver exceptional customer value.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Building products that solve real customer problems</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I bring a unique interdisciplinary background that combines science, arts, human psychology, finance, and marketing. 
+                        With dual master's degrees - an MBA in Finance and Marketing, and a Master's in Design Thinking and Product Development - 
+                        I approach product management from multiple perspectives, creating solutions that are both analytically sound and deeply human-centric.
+                    </p>
+                    <p>
+                        My expertise lies in analyzing market fit, conducting comprehensive customer research, performing competitive analysis, 
+                        using AI to automate 60% of PM tasks, and crafting exceptional user experiences that genuinely solve customer problems. 
+                        What truly drives me is the journey from problem to creative solution - I'm in love with every step of transforming complex challenges 
+                        into elegant, impactful products.
+                    </p>
+                    <p>
+                        I have had the opportunity to build products from their evolution phase to real outcomes through data-driven analysis, 
+                        robust competitor research, and collaborating with engineering, design, and business teams. My capacity to turn data into action, 
+                        wireframes into user journeys, and obstacles into victories has resulted in the launch of many successful features and services.
+                    </p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">7+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Master's Degrees</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">60%</div>
+                        <div class="stat-label">PM Tasks Automated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Products Shipped</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chatbot Section - Moved to Front -->
+        <section id="chatbot" class="chatbot-section">
+            <div class="chatbot-header-text">
+                <h3>💬 Chat with me here</h3>
+                <p>Ask me anything about my experience, projects, and expertise</p>
+            </div>
+            <div class="chatbot-window">
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot">
+                        Hi! I'm Shrutikirti's AI assistant. I can answer questions about her experience, challenging projects, PM problem-solving approach, and creative thinking. What would you like to know?
+                    </div>
+                </div>
+                <div class="quick-actions">
+                    <button class="quick-btn" onclick="askQuestion('Tell me about your most difficult project')">Difficult Projects</button>
+                    <button class="quick-btn" onclick="askQuestion('What PM challenges have you solved?')">PM Challenges</button>
+                    <button class="quick-btn" onclick="askQuestion('How do you think outside the box?')">Creative Thinking</button>
+                    <button class="quick-btn" onclick="askQuestion('Tell me about your experience')">Experience</button>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">Senior PM capabilities enhanced by AI & automation</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Product Vision & Strategy</h3>
+                    <ul class="skill-list">
+                        <li>Product Vision Creation</li>
+                        <li>Strategic Roadmapping</li>
+                        <li>Module & Add-on Strategy</li>
+                        <li>Cross-product Dependencies</li>
+                        <li>Process Modeling</li>
+                        <li>KPI Formation & Tracking</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Automation</h3>
+                    <ul class="skill-list">
+                        <li>Product Design Automation</li>
+                        <li>60% PM Task Automation</li>
+                        <li>Grafana AI Automation</li>
+                        <li>Mixpanel AI Analysis</li>
+                        <li>Generative AI Integration</li>
+                        <li>ML-Powered Insights</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Requirements & Delivery</h3>
+                    <ul class="skill-list">
+                        <li>Customer Needs Translation</li>
+                        <li>Epic/Feature Breakdown</li>
+                        <li>User Story Creation</li>
+                        <li>Acceptance Criteria</li>
+                        <li>Multiple Scrum Team PO</li>
+                        <li>Backlog Refinement</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Analysis & Research</h3>
+                    <ul class="skill-list">
+                        <li>User Requirements Analysis</li>
+                        <li>Customer Discovery</li>
+                        <li>User Group Facilitation</li>
+                        <li>Product Maintenance Triage</li>
+                        <li>Technical Solution Review</li>
+                        <li>Process Improvements</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Tools</h3>
+                    <ul class="skill-list">
+                        <li>JIRA & Confluence</li>
+                        <li>Tableau & Power BI</li>
+                        <li>Figma & MIRO</li>
+                        <li>Grafana & Mixpanel</li>
+                        <li>Salesforce CRM</li>
+                        <li>API Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Leadership & Delivery</h3>
+                    <ul class="skill-list">
+                        <li>Cross-functional Leadership</li>
+                        <li>Multiple Team Coordination</li>
+                        <li>Stakeholder Demos</li>
+                        <li>Work Stream Prioritization</li>
+                        <li>Agile & Scrum Mastery</li>
+                        <li>Impact Identification</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Products I've created and problems I've solved</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-number">PROJECT 01</div>
+                        <h3 class="project-title">Fetal Heartbeat Monitoring Platform</h3>
+                        <p class="project-description">
+                            Led development of a revolutionary healthcare feature enabling expectant mothers to connect with midwives 
+                            and monitor baby's heartbeat remotely during COVID-19. Coordinated cross-functional teams, third-party integrations, 
+                            and medical professionals to automate app functionalities and improve patient care.
+                        </p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Healthcare</span>
+                        <span class="tag">IoT Integration</span>
+                        <span class="tag">Mobile App</span>
+                        <span class="tag">API Integration</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-number">PROJECT 02</div>
+                        <h3 class="project-title">Keto Manager App</h3>
+                        <p class="project-description">
+                            Designed and launched a comprehensive ketogenic diet tracking application with AI-powered macro calculators, 
+                            net carb tracking, speech recognition for food logging, and personalized insights. Improved user engagement 
+                            by 40% through data-driven UX optimization.
+                        </p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Health & Fitness</span>
+                        <span class="tag">Voice Recognition</span>
+                        <span class="tag">AI-Powered</span>
+                        <span class="tag">Mobile</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-number">PROJECT 03</div>
+                        <h3 class="project-title">Print Management SaaS Platform</h3>
+                        <p class="project-description">
+                            Currently building innovative features at Pharos Systems International for enterprise print management solutions. 
+                            Leading product strategy, coordinating multiple scrum teams, and implementing AI-driven workflow automation 
+                            to optimize costs and improve operational efficiency.
+                        </p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">SaaS</span>
+                        <span class="tag">Enterprise</span>
+                        <span class="tag">Current Role</span>
+                        <span class="tag">AI Automation</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-number">PROJECT 04</div>
+                        <h3 class="project-title">Banking Process Optimization</h3>
+                        <p class="project-description">
+                            Streamlined retail banking loan processes through data analysis, workflow automation, and cross-functional collaboration. 
+                            Identified bottlenecks, implemented process improvements, and delivered measurable customer satisfaction improvements 
+                            through technical solution optimization.
+                        </p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Fintech</span>
+                        <span class="tag">Process Optimization</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Projects -->
+            <div class="side-projects">
+                <div class="section-header">
+                    <h2 class="section-title">Side Projects</h2>
+                    <p class="section-subtitle">Innovation experiments and passion projects</p>
+                </div>
+                <div class="side-project-highlight">
+                    <div class="side-project-content">
+                        <h3>Travelero - The Travel App</h3>
+                        <p>
+                            Building a one-stop travel solution with AI-powered voice recognition that helps customers book hotels, 
+                            flights, and Airbnbs through a single application. The app eliminates the need to browse multiple sites 
+                            by providing the cheapest, most relevant, and accurate listings all in one place.
+                        </p>
+                        <p>
+                            <strong>Key Features:</strong> Voice-enabled booking, intelligent price comparison across platforms, 
+                            ML-powered recommendations, unified travel management, and personalized itinerary planning.
+                        </p>
+                        <p>
+                            <strong>Tech Stack:</strong> Voice Recognition API, Travel Aggregation APIs, Machine Learning for smart recommendations, 
+                            React Native for cross-platform mobile development.
+                        </p>
+                        <p>
+                            <strong>Status:</strong> Currently in MVP development phase with focus on user testing and feature refinement.
+                        </p>
+                    </div>
+                    <div class="side-project-visual">
+                        <div class="side-project-icon">✈️</div>
+                        <div class="side-project-name">TRAVELERO</div>
+                        <div class="side-project-tagline">Your AI Travel Companion</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Always open to discussing product opportunities and collaborations</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div class="contact-detail">
+                            <a href="/cdn-cgi/l/email-protection#314259434445585a584345580008030371565c50585d1f525e5c"><span class="__cf_email__" data-cfemail="f18299838485989a98838598c0c8c3c3b1969c90989ddf929e9c">[email&#160;protected]</span></a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <div class="contact-detail">
+                            <a href="https://www.linkedin.com/in/shrutikirti/" target="_blank">linkedin.com/in/shrutikirti</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div class="contact-detail">
+                            Currently: Product Manager at Pharos Systems International<br>
+                            Print Management Solutions
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shrutikirti/" target="_blank" class="social-link">in</a>
+                        <a href="/cdn-cgi/l/email-protection#7b0813090e0f121012090f124a4249493b1c161a121755181416" class="social-link">@</a>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>What I Bring</h3>
+                    <p style="color: var(--gray-dark); line-height: 1.7; font-size: 16px;">
+                        ✓ Interdisciplinary background: Science, Arts, Psychology, Finance & Marketing<br><br>
+                        ✓ Dual Master's Degrees: MBA (Finance & Marketing) + Design Thinking & Product Development<br><br>
+                        ✓ 7+ years of product management across healthcare, fintech, and SaaS<br><br>
+                        ✓ Expertise in market fit analysis, customer research, and competitive analysis<br><br>
+                        ✓ AI automation specialist - 60% PM task automation achieved<br><br>
+                        ✓ Passionate about the journey from problem to creative solution<br><br>
+                        ✓ Cross-functional leadership coordinating multiple scrum teams
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Shrutikirti Sharma. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function scrollToChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => {
+                document.getElementById('chatInput').focus();
+            }, 800);
+        }
+
+        function askQuestion(question) {
+            document.getElementById('chatInput').value = question;
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                const response = generateResponse(message.toLowerCase());
+                addMessage(response, 'bot');
+            }, 500);
+        }
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = text;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateResponse(message) {
+            const responses = {
+                experience: "Shrutikirti brings a unique interdisciplinary background combining science, arts, human psychology, finance, and marketing. She holds dual master's degrees: an MBA in Finance and Marketing, and a Master's in Design Thinking and Product Development. With 7+ years of product management experience across healthcare, fintech, and SaaS, her expertise lies in analyzing market fit, conducting deep customer research, performing competitive analysis, using AI to automate PM tasks, and crafting exceptional user experiences to solve customer problems. She's worked at retail banks, healthcare startups, and currently serves as Product Manager at Pharos Systems International. What sets her apart is her passion for the entire journey - from identifying a complex problem to architecting a creative, elegant solution. She's in love with the problem-to-solution journey and brings this enthusiasm to every product she builds.",
+                
+                difficultproject: "One of Shrutikirti's most challenging projects was developing a fetal heartbeat monitoring app with an analytics dashboard during COVID-19. She owned the entire app development from concept to launch, coordinating with medical professionals, third-party IoT device integration, and building a comprehensive analytics dashboard for baby doppler data. The complexity involved: 1) Real-time data synchronization from medical devices, 2) Creating intuitive dashboards for both mothers and healthcare providers, 3) Ensuring HIPAA compliance and data security, 4) Managing multiple stakeholders including doctors, midwives, and engineers, 5) Automating workflows during a global pandemic with remote teams. She successfully launched it, enabling pregnant women to safely monitor their babies at home while healthcare providers could track critical data remotely.",
+                
+                challenges: "Shrutikirti has solved numerous PM challenges through creative, out-of-the-box thinking: 1) **Process Optimization Challenge**: At a retail bank, loan approvals took 7 days. She didn't just streamline - she reimagined the entire workflow, identified hidden bottlenecks through deep data analysis, and automated 60% of manual tasks, reducing approval time to 3 days. 2) **Healthcare IoT Integration**: When faced with integrating third-party medical devices, she created a flexible API architecture that could adapt to multiple device types, future-proofing the solution. 3) **Remote Team Coordination**: During COVID, she implemented AI-powered project tracking and automated status updates, keeping multiple scrum teams aligned without constant meetings. 4) **User Adoption Problem**: For the Keto app, she introduced voice recognition when competitors only had manual entry - thinking beyond standard features to solve real user pain points. Her approach: identify the root problem, challenge assumptions, and create solutions that are 10x better, not just 10% better.",
+                
+                creative: "Shrutikirti's creative thinking manifests in three ways: 1) **Reframing Problems**: Instead of asking 'How do we make this faster?', she asks 'Why do we need this step at all?' This led to eliminating entire processes rather than just optimizing them. 2) **Cross-Domain Innovation**: She applies AI/ML concepts from tech to traditional industries like print management and banking, bringing fresh perspectives. 3) **User-Centric Innovation**: Rather than following industry standards, she observes actual user behavior and creates unexpected solutions - like adding voice recognition to a diet app because she noticed people cook while logging food. She challenges the status quo, questions 'best practices', and isn't afraid to propose unconventional solutions that deliver superior results.",
+                
+                analytics: "The baby doppler analytics dashboard was a comprehensive solution Shrutikirti built to visualize fetal heartbeat data. It included: real-time monitoring charts, historical trend analysis, anomaly detection alerts for healthcare providers, patient engagement metrics, and compliance reporting. She worked closely with medical professionals to determine which metrics mattered most, designed an intuitive interface for non-technical users, and implemented automated alerts for concerning patterns. The dashboard became a critical tool during the pandemic, enabling remote prenatal care at scale.",
+                
+                projects: "Key projects include: 1) Fetal heartbeat monitoring platform with analytics dashboard - owned full app development and IoT integration during COVID-19, 2) Keto Manager app with AI-powered tracking and voice recognition - improved engagement by 40%, 3) Print management SaaS at Pharos Systems International with workflow automation and AI-driven optimization, 4) Banking process optimization - reimagined workflows to reduce approval times dramatically. Each project demonstrates technical leadership, creative problem-solving, and customer-centric innovation.",
+                
+                sideprojects: "The flagship side project is Travelero - an AI-powered travel app with voice recognition that lets users book hotels, flights, and Airbnbs through one platform. It features intelligent price comparison, ML-powered recommendations, and personalized itineraries. Currently in MVP development with focus on voice-enabled booking.",
+                
+                travelero: "Travelero is a one-stop travel solution using AI and voice recognition to simplify travel booking. Users can voice-search and book hotels, flights, and Airbnbs in one app. Features include cross-platform price comparison, smart recommendations, unified travel management, and personalized itineraries. Tech stack: Voice Recognition API, travel aggregation APIs, ML recommendations, React Native.",
+                
+                ai: "Shrutikirti specializes in AI automation for product management, achieving 60% automation of PM tasks. Her expertise includes product design automation, Grafana AI automation, Mixpanel AI analysis, generative AI integration, and ML-powered insights. She focuses on leveraging emerging technologies to transform workflows and deliver exceptional product value.",
+                
+                skills: "Core competencies include: Product Vision & Strategy (roadmapping, module strategy, cross-product dependencies), AI & Automation (60% task automation, Grafana/Mixpanel AI), Requirements & Delivery (customer needs translation, epic/feature breakdown, multiple scrum team coordination), Analysis & Research (user requirements, customer discovery, process improvements), and Technical Tools (JIRA, Tableau, Figma, Grafana, Mixpanel).",
+                
+                contact: "You can reach Shrutikirti at shrutikirti1922@gmail.com or connect on LinkedIn at linkedin.com/in/shrutikirti. She's currently Product Manager at Pharos Systems International, working on print management SaaS solutions with AI automation and workflow optimization.",
+                
+                healthcare: "Shrutikirti has extensive healthcare product experience, including building a fetal heartbeat monitoring platform with live chat and analytics dashboard for pregnant women during COVID-19, developing the Keto Manager fitness app with AI-powered tracking, and coordinating with medical professionals and scientists. She owned the full app development lifecycle and created intuitive analytics tools for healthcare providers.",
+                
+                pharos: "At Pharos Systems International, Shrutikirti serves as Product Manager for print management solutions. She leads product strategy for enterprise SaaS, coordinates multiple scrum teams, implements AI-driven workflow automation, and focuses on cost optimization and operational efficiency improvements.",
+                
+                automation: "Shrutikirti has achieved 60% automation of PM tasks using AI tools. This includes product design automation, Grafana AI for monitoring and analytics, Mixpanel AI for user behavior analysis, automated backlog refinement, and AI-powered requirements translation. She specializes in leveraging automation to enhance PM efficiency and product quality.",
+                
+                problemsolving: "Shrutikirti's problem-solving approach is rooted in creative thinking and challenging conventional wisdom. She doesn't just optimize existing processes - she reimagines them entirely. Examples: automating 60% of loan approval workflows instead of just making them faster, introducing voice recognition to health apps when the industry focused on manual entry, building flexible API architectures that adapt to future needs. She identifies root causes, questions assumptions, and delivers 10x improvements through unconventional solutions.",
+                
+                default: "I can help you learn more about Shrutikirti's experience, challenging projects (like the baby doppler analytics dashboard), her creative problem-solving approach, and PM challenges she's conquered. Feel free to ask about her out-of-the-box thinking, difficult projects, or use the quick action buttons!"
+            };
+
+            if (message.includes('difficult') || message.includes('challenging') || message.includes('complex project') || message.includes('hard project')) {
+                return responses.difficultproject;
+            } else if (message.includes('challenge') || message.includes('problem') && (message.includes('solved') || message.includes('overcome'))) {
+                return responses.challenges;
+            } else if (message.includes('creative') || message.includes('think outside') || message.includes('innovative') || message.includes('out of the box')) {
+                return responses.creative;
+            } else if (message.includes('analytics') || message.includes('dashboard') || message.includes('doppler') || message.includes('baby')) {
+                return responses.analytics;
+            } else if (message.includes('problem solving') || message.includes('approach') || message.includes('methodology')) {
+                return responses.problemsolving;
+            } else if (message.includes('experience') || message.includes('background') || message.includes('work history')) {
+                return responses.experience;
+            } else if (message.includes('project') && !message.includes('side')) {
+                return responses.projects;
+            } else if (message.includes('side project') || message.includes('passion project')) {
+                return responses.sideprojects;
+            } else if (message.includes('travelero') || message.includes('travel app')) {
+                return responses.travelero;
+            } else if (message.includes('ai') || message.includes('automation') || message.includes('artificial intelligence')) {
+                return responses.automation;
+            } else if (message.includes('skill') || message.includes('expertise') || message.includes('capabilities')) {
+                return responses.skills;
+            } else if (message.includes('contact') || message.includes('email') || message.includes('reach')) {
+                return responses.contact;
+            } else if (message.includes('healthcare') || message.includes('medical') || message.includes('health')) {
+                return responses.healthcare;
+            } else if (message.includes('pharos') || message.includes('current') || message.includes('print management')) {
+                return responses.pharos;
+            } else if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                return "Hello! I'm here to tell you about Shrutikirti's impressive product management journey, her creative problem-solving approach, and the challenging projects she's owned. What would you like to know?";
+            } else {
+                return responses.default;
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+   
